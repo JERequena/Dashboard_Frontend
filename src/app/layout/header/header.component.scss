@@ -1,0 +1,63 @@
+:host {
+  display: block;
+}
+
+.app-header {
+  height: 64px;
+  padding: 0 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #0078b5;
+  color: #ffffff;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.brand-minedu {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 32px;
+  margin: 0 18px;
+
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.brand-siseve {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.brand-subtitle {
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 13px;
+}
+
+.update-label {
+  opacity: 0.85;
+}

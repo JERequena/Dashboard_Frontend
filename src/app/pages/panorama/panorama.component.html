@@ -1,0 +1,90 @@
+<section class="panorama">
+
+  <header class="panorama-header">
+    <div>
+      <h1 class="panorama-title">
+        Panorama general
+      </h1>
+
+      <p class="panorama-subtitle">
+        SíseVe contra la violencia escolar
+      </p>
+    </div>
+
+    <button class="filter-button">
+      <i class="fa-solid fa-filter"></i>
+      <span>Filtros</span>
+    </button>
+  </header>
+
+
+  <section class="kpi-grid">
+
+    <app-kpi-card
+      titulo="Casos reportados"
+      valor="118,384"
+      subtitulo="2013 - 2026"
+      icono="fa-file-circle-exclamation"
+    />
+
+    <app-kpi-card
+      titulo="Casos 2025"
+      valor="19,535"
+      subtitulo="Año completo"
+      icono="fa-calendar-check"
+    />
+
+    <app-kpi-card
+      titulo="Casos 2026"
+      valor="7,195"
+      subtitulo="Al 30/06/2026"
+      icono="fa-chart-column"
+    />
+
+    <app-kpi-card
+      titulo="Variación"
+      valor="—"
+      subtitulo="2026 vs 2025 YTD"
+      icono="fa-arrow-trend-up"
+    />
+
+  </section>
+
+  <section class="charts-grid">
+
+    <app-chart-card
+      titulo="Evolución de casos reportados"
+      [configuracion]="configuracionEvolucion"
+    />
+
+    <app-chart-card
+      titulo="Tipo de violencia"
+      [configuracion]="configuracionTipoViolencia"
+    />
+
+  </section>
+
+  <section class="secondary-charts-grid">
+
+    <app-chart-card
+      titulo="Tipo de agresor"
+      [configuracion]="configuracionTipoAgresor"
+    />
+
+    <app-chart-card
+      titulo="Gestión de la institución educativa"
+      [configuracion]="configuracionGestionIE"
+    />
+
+    <app-chart-card
+      titulo="Sexo del agredido"
+      [configuracion]="configuracionSexoAgredido"
+    />
+
+    <app-chart-card
+      titulo="Estado de atención"
+      [configuracion]="configuracionEstadoAtencion"
+    />
+
+  </section>
+</section>
