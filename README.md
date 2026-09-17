@@ -1,4 +1,4 @@
-# FRONTEND FE SISEVE DASHBOARD
+# FRONTEND-FE-SISEVE-DASHBOARD
 
 Dashboard web de análisis y visualización de indicadores del Sistema de Información para la Vigilancia de la Violencia Escolar (SISEVE). La aplicación está desarrollada en Angular y presenta información consolidada en tarjetas KPI y gráficos estadísticos para facilitar la revisión de datos del panorama institucional.
 
