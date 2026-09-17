@@ -1,59 +1,109 @@
-# FRONTENDFESISEVEDASHBOARD
+# FRONTEND-FE-SISEVE-DASHBOARD
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+Dashboard web de análisis y visualización de indicadores del SíseVe. La aplicación está desarrollada en Angular y presenta información consolidada en tarjetas KPI y gráficos estadísticos para facilitar la revisión de datos del panorama institucional.
 
-## Development server
+## Descripción
 
-To start a local development server, run:
+Este proyecto implementa una vista de panorama con:
+
+- Tarjetas de indicadores clave (KPI)
+- Gráficos de evolución y distribución
+- Layout de dashboard con navegación y cabecera
+- Visualización responsiva para monitoreo institucional
+
+La aplicación carga la vista principal desde la ruta inicial y organiza la lógica de presentación en componentes reutilizables.
+
+## Tecnologías
+
+- Angular 22
+- TypeScript
+- Chart.js
+- Font Awesome
+- SCSS
+
+## Requisitos previos
+
+Antes de iniciar, asegúrate de tener instalado:
+
+- Node.js 18 o superior
+- npm 9 o superior
+
+## Instalación
+
+Clona el repositorio e instala las dependencias:
+
+```bash
+npm install
+```
+
+## Ejecución en desarrollo
+
+Para iniciar el servidor local de desarrollo:
+
+```bash
+npm start
+```
+
+O de forma equivalente:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Luego abre tu navegador en:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+http://localhost:4200/
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+La aplicación se recargará automáticamente al modificar archivos del proyecto.
+
+## Construcción para producción
+
+Para compilar la aplicación para producción:
 
 ```bash
-ng generate --help
+npm run build
 ```
 
-## Building
+Los artefactos generados quedarán en la carpeta `dist/`.
 
-To build the project run:
+## Pruebas
+
+Para ejecutar las pruebas unitarias:
 
 ```bash
-ng build
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Estructura del proyecto
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
+```text
+src/
+├── app/
+│   ├── components/
+│   │   ├── chart-card/
+│   │   └── kpi-card/
+│   ├── layout/
+│   │   ├── header/
+│   │   └── navigation/
+│   ├── pages/
+│   │   └── panorama/
+│   ├── app.component.ts
+│   ├── app.routes.ts
+│   └── app.config.ts
+├── styles.scss
+└── main.ts
 ```
 
-## Running end-to-end tests
+## Notas
 
-For end-to-end (e2e) testing, run:
+- La vista principal se encuentra en la ruta inicial del proyecto.
+- El dashboard utiliza gráficos configurados en TypeScript para representar indicadores de evolución, tipo de violencia, agresor, gestión institucional y atención.
+- El proyecto está preparado para continuar desarrollándose como una interfaz de monitoreo y analítica.
 
-```bash
-ng e2e
-```
+## Recursos adicionales
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Angular CLI Documentation](https://angular.dev/tools/cli)
+- [Angular Documentation](https://angular.dev)
+- [Chart.js Documentation](https://www.chartjs.org/docs/latest/)
