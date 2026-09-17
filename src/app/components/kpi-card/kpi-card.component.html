@@ -1,0 +1,29 @@
+<article class="kpi-card">
+
+  <div class="kpi-content">
+
+    <div class="kpi-icon">
+      <i class="fa-solid" [class]="icono()"></i>
+    </div>
+
+    <div class="kpi-information">
+
+      <div class="kpi-title">
+        {{ titulo() }}
+      </div>
+
+      <div class="kpi-value">
+        {{ valor() }}
+      </div>
+
+      @if (subtitulo()) {
+        <div class="kpi-subtitle">
+          {{ subtitulo() }}
+        </div>
+      }
+
+    </div>
+
+  </div>
+
+</article>
