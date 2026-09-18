@@ -1,36 +1,78 @@
 <nav class="app-navigation">
 
-  <a class="nav-item active">
+  <!-- PANORAMA -->
+  <a
+    class="nav-item"
+    routerLink="/"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
     <i class="fa-solid fa-chart-line"></i>
     <span>Panorama general</span>
   </a>
 
-  <a class="nav-item">
+
+  <!-- VIOLENCIA -->
+  <a
+    class="nav-item"
+    routerLink="/violencia"
+    routerLinkActive="active"
+  >
     <i class="fa-solid fa-triangle-exclamation"></i>
     <span>Violencia</span>
   </a>
 
-  <a class="nav-item">
+
+  <!-- AGRESORES -->
+  <a
+    class="nav-item"
+    routerLink="/agresores"
+    routerLinkActive="active"
+  >
     <i class="fa-solid fa-people-group"></i>
     <span>Agresores</span>
   </a>
 
-  <a class="nav-item">
+
+  <!-- ACOSO ESCOLAR -->
+  <a
+    class="nav-item"
+    routerLink="/acoso-escolar"
+    routerLinkActive="active"
+  >
     <i class="fa-solid fa-school"></i>
     <span>Acoso escolar</span>
   </a>
 
-  <a class="nav-item">
+
+  <!-- RANKING -->
+  <a
+    class="nav-item"
+    routerLink="/ranking"
+    routerLinkActive="active"
+  >
     <i class="fa-solid fa-ranking-star"></i>
     <span>Ranking</span>
   </a>
 
-  <a class="nav-item">
+
+  <!-- FOCALIZACIÓN -->
+  <a
+    class="nav-item"
+    routerLink="/focalizacion"
+    routerLinkActive="active"
+  >
     <i class="fa-solid fa-map-location-dot"></i>
     <span>Focalización territorial</span>
   </a>
 
-  <a class="nav-item">
+
+  <!-- PREVALENCIA -->
+  <a
+    class="nav-item"
+    routerLink="/prevalencia"
+    routerLinkActive="active"
+  >
     <i class="fa-solid fa-chart-pie"></i>
     <span>Prevalencia</span>
   </a>

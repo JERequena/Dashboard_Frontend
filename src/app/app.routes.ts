@@ -8,4 +8,11 @@ export const routes: Routes = [
         (m) => m.Panorama
       ),
   },
+  {
+    path: 'violencia',
+    loadComponent: () =>
+      import('./pages/violencia/violencia.component').then(
+        (m) => m.Violencia
+      ),
+  },
 ];
