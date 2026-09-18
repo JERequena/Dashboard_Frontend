@@ -1,0 +1,300 @@
+<section class="violencia">
+
+  <!-- ENCABEZADO -->
+  <header class="page-header">
+
+    <div>
+      <h1 class="page-title">
+        Violencia
+      </h1>
+
+      <p class="page-subtitle">
+        Análisis de casos reportados según tipo de violencia
+      </p>
+    </div>
+
+    <button class="filter-button" type="button">
+      <i class="fa-solid fa-filter"></i>
+      <span>Filtros</span>
+    </button>
+
+  </header>
+
+
+  <!-- PRIMERA FILA: GRÁFICOS -->
+  <section class="charts-grid">
+
+    <app-chart-card
+      titulo="Distribución por tipo de violencia"
+      [configuracion]="configuracionDistribucion">
+    </app-chart-card>
+
+    <app-chart-card
+      titulo="Evolución anual por tipo de violencia"
+      [configuracion]="configuracionEvolucion">
+    </app-chart-card>
+
+  </section>
+
+
+  <!-- SEGUNDA FILA: TABLAS -->
+  <section class="details-grid">
+
+    <!-- DETALLE ANUAL POR TIPO DE VIOLENCIA -->
+    <article class="table-card">
+
+      <header class="table-header">
+        <h2>Detalle anual por tipo de violencia</h2>
+      </header>
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Año</th>
+              <th>Física</th>
+              <th>Física %</th>
+              <th>Psicológica</th>
+              <th>Psicológica %</th>
+              <th>Sexual</th>
+              <th>Sexual %</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>2026</td>
+              <td>3,153</td>
+              <td>43.8%</td>
+              <td>2,829</td>
+              <td>39.3%</td>
+              <td>1,213</td>
+              <td>16.9%</td>
+              <td>7,195</td>
+            </tr>
+
+            <tr>
+              <td>2025</td>
+              <td>8,457</td>
+              <td>43.3%</td>
+              <td>7,612</td>
+              <td>39.0%</td>
+              <td>3,466</td>
+              <td>17.7%</td>
+              <td>19,535</td>
+            </tr>
+
+            <tr>
+              <td>2024</td>
+              <td>7,781</td>
+              <td>40.3%</td>
+              <td>7,634</td>
+              <td>39.6%</td>
+              <td>3,882</td>
+              <td>20.1%</td>
+              <td>19,297</td>
+            </tr>
+
+            <tr>
+              <td>2023</td>
+              <td>7,958</td>
+              <td>39.8%</td>
+              <td>8,353</td>
+              <td>42.4%</td>
+              <td>3,511</td>
+              <td>17.8%</td>
+              <td>19,722</td>
+            </tr>
+
+            <tr>
+              <td>2022</td>
+              <td>5,129</td>
+              <td>42.7%</td>
+              <td>4,474</td>
+              <td>37.2%</td>
+              <td>2,422</td>
+              <td>20.1%</td>
+              <td>12,025</td>
+            </tr>
+
+            <tr>
+              <td>2021</td>
+              <td>66</td>
+              <td>8.6%</td>
+              <td>391</td>
+              <td>50.9%</td>
+              <td>311</td>
+              <td>40.5%</td>
+              <td>768</td>
+            </tr>
+
+            <tr>
+              <td>2020</td>
+              <td>88</td>
+              <td>11.7%</td>
+              <td>408</td>
+              <td>54.0%</td>
+              <td>259</td>
+              <td>34.3%</td>
+              <td>755</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </article>
+
+
+    <!-- SUBTIPOS DE VIOLENCIA -->
+    <article class="table-card">
+
+      <header class="table-header">
+        <h2>Subtipos de violencia</h2>
+      </header>
+
+
+      <!-- FILTROS DE SUBTIPOS -->
+      <div class="subtype-filters">
+
+        <div class="filter-field">
+
+          <label for="tipoViolencia">
+            Tipo de violencia
+          </label>
+
+          <select id="tipoViolencia">
+            <option value="todos">Todos</option>
+            <option value="fisica">Física</option>
+            <option value="psicologica">Psicológica</option>
+            <option value="sexual">Sexual</option>
+          </select>
+
+        </div>
+
+
+        <div class="filter-field search-field">
+
+          <label for="buscarSubtipo">
+            Buscar
+          </label>
+
+          <div class="search-input">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+              id="buscarSubtipo"
+              type="text"
+              placeholder="Buscar..."
+            />
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TABLA DE SUBTIPOS -->
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Subtipo de violencia</th>
+              <th>Casos</th>
+              <th>%</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Sin lesiones</td>
+              <td>27,508</td>
+              <td>23.2%</td>
+            </tr>
+
+            <tr>
+              <td>Castigo físico</td>
+              <td>12,908</td>
+              <td>10.9%</td>
+            </tr>
+
+            <tr>
+              <td>Con lesiones</td>
+              <td>12,111</td>
+              <td>10.2%</td>
+            </tr>
+
+            <tr>
+              <td>Acoso escolar</td>
+              <td>5,437</td>
+              <td>4.6%</td>
+            </tr>
+
+            <tr>
+              <td>Aislamiento</td>
+              <td>4,551</td>
+              <td>3.8%</td>
+            </tr>
+
+            <tr>
+              <td>Ciber acoso</td>
+              <td>3,411</td>
+              <td>2.9%</td>
+            </tr>
+
+            <tr>
+              <td>Con uso de armas</td>
+              <td>32</td>
+              <td>0.0%</td>
+            </tr>
+
+            <tr>
+              <td>Discriminación</td>
+              <td>2,456</td>
+              <td>2.1%</td>
+            </tr>
+
+            <tr>
+              <td>Intimidación</td>
+              <td>3,190</td>
+              <td>2.7%</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <!-- PAGINACIÓN -->
+      <footer class="pagination">
+
+        <span>1 - 9 de 12</span>
+
+        <button type="button" aria-label="Página anterior">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <button type="button" aria-label="Página siguiente">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+      </footer>
+
+    </article>
+
+  </section>
+
+</section>
