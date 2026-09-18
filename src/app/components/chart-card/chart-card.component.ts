@@ -44,7 +44,12 @@ export class ChartCard implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.vistaInicializada = true;
 
-    this.renderizarGrafico(this.configuracion());
+    //this.renderizarGrafico(this.configuracion());
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        this.renderizarGrafico(this.configuracion());
+      });
+    });
   }
 
   private renderizarGrafico(
