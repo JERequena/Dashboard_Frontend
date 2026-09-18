@@ -43,6 +43,8 @@ export class Violencia {
       responsive: true,
       maintainAspectRatio: false,
 
+      resizeDelay: 300,
+
       plugins: {
         legend: {
           display: false
@@ -180,6 +182,8 @@ export class Violencia {
     options: {
       responsive: true,
       maintainAspectRatio: false,
+
+      resizeDelay: 300,
 
       plugins: {
         legend: {
