@@ -13,13 +13,20 @@
       </p>
     </div>
 
-    <button class="filter-button" type="button">
-      <i class="fa-solid fa-filter"></i>
-      <span>Filtros</span>
-    </button>
+    <div class="header-actions">
+      
+      <button class="filter-button" type="button" (click)="globalFilters.abrir()">
+        <i class="fa-solid fa-filter"></i>
+        <span>Filtros</span>
+      </button>
+
+    </div>
 
   </header>
 
+  <app-dashboard-filters
+    [filtros]="filtros">
+  </app-dashboard-filters>
 
   <!-- PRIMERA FILA: GRÁFICOS -->
   <section class="charts-grid">
@@ -35,7 +42,6 @@
     </app-chart-card>
 
   </section>
-
 
   <!-- SEGUNDA FILA: TABLAS -->
   <section class="details-grid">

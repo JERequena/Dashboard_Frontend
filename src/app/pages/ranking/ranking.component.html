@@ -1,0 +1,349 @@
+<section class="ranking">
+
+  <header class="page-header">
+
+    <div>
+      <h1 class="page-title">Ranking de casos</h1>
+
+      <p class="page-subtitle">
+        Instituciones y ámbitos con mayor número de casos reportados
+      </p>
+    </div>
+
+    <div class="header-actions">
+      
+      <button class="filter-button" type="button" (click)="globalFilters.abrir()">
+        <i class="fa-solid fa-filter"></i>
+        <span>Filtros</span>
+      </button>
+
+    </div>
+
+  </header>
+
+  <app-dashboard-filters
+    [filtros]="filtros">
+  </app-dashboard-filters>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="ranking-grid">
+
+    <!-- TOP 10 -->
+    <article class="table-card top-regions">
+
+      <header class="table-header">
+        <h2>Top 10 regiones</h2>
+      </header>
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Región</th>
+              <th>Casos</th>
+              <th>% del total</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>1</td>
+              <td>Lima Metropolitana</td>
+              <td>32,540</td>
+              <td>27.5%</td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+              <td>La Libertad</td>
+              <td>12,850</td>
+              <td>10.9%</td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>Piura</td>
+              <td>9,420</td>
+              <td>8.0%</td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td>Arequipa</td>
+              <td>7,850</td>
+              <td>6.6%</td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+              <td>Cusco</td>
+              <td>6,430</td>
+              <td>5.4%</td>
+            </tr>
+
+            <tr>
+              <td>6</td>
+              <td>Cajamarca</td>
+              <td>5,980</td>
+              <td>5.1%</td>
+            </tr>
+
+            <tr>
+              <td>7</td>
+              <td>Junín</td>
+              <td>5,760</td>
+              <td>4.9%</td>
+            </tr>
+
+            <tr>
+              <td>8</td>
+              <td>Lambayeque</td>
+              <td>5,210</td>
+              <td>4.4%</td>
+            </tr>
+
+            <tr>
+              <td>9</td>
+              <td>Áncash</td>
+              <td>4,980</td>
+              <td>4.2%</td>
+            </tr>
+
+            <tr>
+              <td>10</td>
+              <td>Puno</td>
+              <td>4,560</td>
+              <td>3.9%</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </article>
+
+
+    <!-- MAPA -->
+    <article class="map-card">
+
+      <header class="table-header">
+        <h2>Casos por región</h2>
+      </header>
+
+      <div class="map-content">
+
+        <div class="map-wrapper">
+
+          <svg
+            class="peru-map"
+            viewBox="0 0 520 500"
+            preserveAspectRatio="xMidYMid meet"
+            aria-label="Mapa de casos por región del Perú">
+
+            @for (departamento of departamentos(); track departamento.nombre) {
+
+              <path
+                [attr.d]="departamento.path"
+                [class]="obtenerClaseMapa(departamento.casos)"
+                [attr.aria-label]="departamento.nombre"
+                [attr.data-casos]="departamento.casos">
+
+                <title>
+                  {{ departamento.nombre }}:
+                  {{ departamento.casos.toLocaleString() }} casos
+                </title>
+
+              </path>
+
+            }
+
+          </svg>
+
+        </div>
+
+        <div class="map-legend">
+
+          <span class="legend-title">
+            N° de casos
+          </span>
+
+          <span>
+            <i class="legend-color level-5"></i>
+            ≥ 20,000
+          </span>
+
+          <span>
+            <i class="legend-color level-4"></i>
+            10,001 – 20,000
+          </span>
+
+          <span>
+            <i class="legend-color level-3"></i>
+            5,001 – 10,000
+          </span>
+
+          <span>
+            <i class="legend-color level-2"></i>
+            1,001 – 5,000
+          </span>
+
+          <span>
+            <i class="legend-color level-1"></i>
+            ≤ 1,000
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- EVOLUCIÓN -->
+
+    <app-chart-card
+      titulo="Evolución de casos – Top 5 regiones"
+      [configuracion]="configuracionEvolucion">
+    </app-chart-card>
+
+
+    <!-- DETALLE -->
+
+    <article class="table-card detail-card">
+
+      <header class="table-header">
+
+        <h2>Detalle por región</h2>
+
+        <div class="search-input">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input
+            type="text"
+            placeholder="Buscar región..."
+          />
+
+        </div>
+
+      </header>
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Región</th>
+              <th>Casos</th>
+              <th>% del total</th>
+              <th>Física</th>
+              <th>Psicológica</th>
+              <th>Sexual</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>1</td>
+              <td>Lima Metropolitana</td>
+              <td>32,540</td>
+              <td>27.5%</td>
+              <td>14,210</td>
+              <td>11,850</td>
+              <td>6,480</td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+              <td>La Libertad</td>
+              <td>12,850</td>
+              <td>10.9%</td>
+              <td>5,620</td>
+              <td>5,010</td>
+              <td>2,220</td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>Piura</td>
+              <td>9,420</td>
+              <td>8.0%</td>
+              <td>4,180</td>
+              <td>3,650</td>
+              <td>1,590</td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td>Arequipa</td>
+              <td>7,850</td>
+              <td>6.6%</td>
+              <td>3,240</td>
+              <td>2,980</td>
+              <td>1,630</td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+              <td>Cusco</td>
+              <td>6,430</td>
+              <td>5.4%</td>
+              <td>2,710</td>
+              <td>2,450</td>
+              <td>1,270</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <footer class="pagination">
+
+        <span>1 - 5 de 25</span>
+
+        <button type="button">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <button type="button" class="page-number active">
+          1
+        </button>
+
+        <button type="button" class="page-number">
+          2
+        </button>
+
+        <button type="button" class="page-number">
+          3
+        </button>
+
+        <button type="button" class="page-number">
+          4
+        </button>
+
+        <button type="button" class="page-number">
+          5
+        </button>
+
+        <button type="button">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+      </footer>
+
+    </article>
+
+  </section>
+
+</section>

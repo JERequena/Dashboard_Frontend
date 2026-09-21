@@ -1,0 +1,528 @@
+<section class="focalizacion">
+
+  <header class="page-header">
+
+    <div>
+      <h1 class="page-title">
+        Focalización territorial
+      </h1>
+
+      <p class="page-subtitle">
+        Identificación de ámbitos con mayor concentración de casos y prioridad de atención
+      </p>
+    </div>
+
+    <div class="header-actions">
+      
+      <button class="filter-button" type="button" (click)="globalFilters.abrir()">
+        <i class="fa-solid fa-filter"></i>
+        <span>Filtros</span>
+      </button>
+
+    </div>
+
+  </header>
+
+  <!-- TABS -->
+
+  <nav class="focalizacion-tabs">
+
+    <button class="tab active" type="button">
+      Tipología de la violencia
+    </button>
+
+    <button class="tab" type="button">
+      Tipología del agresor
+    </button>
+
+    <button class="tab" type="button">
+      Sexo del agredido
+    </button>
+
+    <button class="tab" type="button">
+      Gestión de la IE
+    </button>
+
+    <button class="tab" type="button">
+      Estado de atención
+    </button>
+  </nav>
+
+  <section class="focalizacion-grid">
+
+    <!-- MAPA -->
+
+    <article class="map-card">
+
+      <header class="card-header">
+        <h2>Mapa de casos por distrito</h2>
+      </header>
+
+      <div class="map-content">
+
+        <div class="map-controls">
+
+          <button type="button">
+            +
+          </button>
+
+          <button type="button">
+            −
+          </button>
+
+        </div>
+
+        <div class="map-wrapper">
+
+          <svg
+            class="peru-map"
+            viewBox="0 0 520 500"
+            preserveAspectRatio="xMidYMid meet"
+            aria-label="Mapa de casos">
+
+            @for (
+              zona of zonas();
+              track zona.nombre
+            ) {
+
+              <path
+                [attr.d]="zona.path"
+                [class]="obtenerClaseMapa(zona.casos)"
+                [attr.aria-label]="zona.nombre">
+
+                <title>
+                  {{ zona.nombre }}:
+                  {{ zona.casos.toLocaleString() }}
+                  casos
+                </title>
+
+              </path>
+
+            }
+
+          </svg>
+
+        </div>
+
+        <div class="map-legend">
+
+          <span class="legend-title">
+            N° de casos
+          </span>
+
+          <span>
+            <i class="legend-color level-5"></i>
+            ≥ 1,000
+          </span>
+
+          <span>
+            <i class="legend-color level-4"></i>
+            501 – 1,000
+          </span>
+
+          <span>
+            <i class="legend-color level-3"></i>
+            101 – 500
+          </span>
+
+          <span>
+            <i class="legend-color level-2"></i>
+            11 – 100
+          </span>
+
+          <span>
+            <i class="legend-color level-1"></i>
+            ≤ 10
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- CONTENIDO DERECHO -->
+
+    <div class="right-content">
+
+      <!-- KPIS -->
+
+      <section class="kpi-grid">
+
+        <article class="kpi-card">
+
+          <div class="kpi-icon blue">
+            <i class="fa-solid fa-users"></i>
+          </div>
+
+          <div class="kpi-content">
+
+            <span class="kpi-label">
+              Casos reportados
+            </span>
+
+            <strong>
+              118,384
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="kpi-card">
+
+          <div class="kpi-icon red">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+
+          <div class="kpi-content">
+
+            <span class="kpi-label">
+              Ámbitos críticos
+            </span>
+
+            <strong>
+              245
+            </strong>
+
+            <small>
+              Distritos con prioridad alta
+            </small>
+
+          </div>
+
+        </article>
+
+
+        <article class="kpi-card">
+
+          <div class="kpi-icon green">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+
+          <div class="kpi-content">
+
+            <span class="kpi-label">
+              Mayor concentración
+            </span>
+
+            <strong>
+              Lima Metropolitana
+            </strong>
+
+            <small>
+              32,540 casos
+            </small>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- AMBITOS PRIORIZADOS -->
+
+      <article class="priority-card">
+
+        <header class="card-header">
+          <h2>Ámbitos priorizados</h2>
+        </header>
+
+        <div class="priority-grid">
+
+          <div class="priority-item high">
+
+            <div class="priority-icon">
+              <i class="fa-solid fa-flag"></i>
+            </div>
+
+            <div>
+              <span>
+                Prioridad alta
+              </span>
+
+              <strong>
+                245
+              </strong>
+
+              <small>
+                20.7% del total
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="priority-item medium">
+
+            <div class="priority-icon">
+              <i class="fa-solid fa-flag"></i>
+            </div>
+
+            <div>
+              <span>
+                Prioridad media
+              </span>
+
+              <strong>
+                386
+              </strong>
+
+              <small>
+                32.6% del total
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="priority-item low">
+
+            <div class="priority-icon">
+              <i class="fa-solid fa-flag"></i>
+            </div>
+
+            <div>
+              <span>
+                Prioridad baja
+              </span>
+
+              <strong>
+                554
+              </strong>
+
+              <small>
+                46.7% del total
+              </small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- DISTRIBUCION -->
+
+      <article class="distribution-card">
+
+        <header class="card-header">
+          <h2>
+            Distribución de casos según nivel de prioridad
+          </h2>
+        </header>
+
+        <div class="distribution-content">
+
+          <div class="priority-bar">
+
+            <div
+              class="bar-high"
+              style="width: 20.7%">
+            </div>
+
+            <div
+              class="bar-medium"
+              style="width: 32.6%">
+            </div>
+
+            <div
+              class="bar-low"
+              style="width: 46.7%">
+            </div>
+
+          </div>
+
+          <div class="distribution-legend">
+
+            <span>
+              <i class="dot high"></i>
+              Alta 20.7%
+            </span>
+
+            <span>
+              <i class="dot medium"></i>
+              Media 32.6%
+            </span>
+
+            <span>
+              <i class="dot low"></i>
+              Baja 46.7%
+            </span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- DETALLE -->
+
+  <article class="table-card detail-card">
+
+    <header class="table-header">
+
+      <h2>
+        Detalle de ámbitos focalizados
+      </h2>
+
+      <div class="search-input">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          type="text"
+          placeholder="Buscar..."
+        />
+
+      </div>
+
+    </header>
+
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>#</th>
+            <th>Región</th>
+            <th>Provincia</th>
+            <th>Distrito</th>
+            <th>UGEL</th>
+            <th>Casos</th>
+            <th>Tasa por 1,000 est.</th>
+            <th>Nivel de prioridad</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>1</td>
+            <td>Lima Metropolitana</td>
+            <td>Lima</td>
+            <td>San Juan de Lurigancho</td>
+            <td>UGEL 05</td>
+            <td>4,850</td>
+            <td>12.3</td>
+            <td>
+              <span class="priority-badge high">
+                Alta
+              </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>La Libertad</td>
+            <td>Trujillo</td>
+            <td>Trujillo</td>
+            <td>UGEL 01</td>
+            <td>2,960</td>
+            <td>10.8</td>
+            <td>
+              <span class="priority-badge high">
+                Alta
+              </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>Piura</td>
+            <td>Piura</td>
+            <td>Castilla</td>
+            <td>UGEL 01</td>
+            <td>2,430</td>
+            <td>9.6</td>
+            <td>
+              <span class="priority-badge high">
+                Alta
+              </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>Cusco</td>
+            <td>Cusco</td>
+            <td>Wanchaq</td>
+            <td>UGEL 01</td>
+            <td>1,980</td>
+            <td>8.7</td>
+            <td>
+              <span class="priority-badge medium">
+                Media
+              </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>5</td>
+            <td>Arequipa</td>
+            <td>Arequipa</td>
+            <td>Cerro Colorado</td>
+            <td>UGEL 02</td>
+            <td>1,760</td>
+            <td>8.1</td>
+            <td>
+              <span class="priority-badge medium">
+                Media
+              </span>
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <footer class="pagination">
+
+      <span>
+        1 - 5 de 50
+      </span>
+
+      <div>
+
+        <button type="button">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <button
+          type="button"
+          class="active">
+          1
+        </button>
+
+        <button type="button">2</button>
+        <button type="button">3</button>
+        <button type="button">4</button>
+        <button type="button">5</button>
+
+        <button type="button">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+      </div>
+
+    </footer>
+
+  </article>
+
+</section>

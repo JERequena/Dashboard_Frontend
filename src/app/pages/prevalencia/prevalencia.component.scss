@@ -1,0 +1,632 @@
+:host {
+  display: block;
+}
+
+/* =========================
+   CONTENEDOR
+   ========================= */
+
+.prevalencia {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  color: #173f5f;
+}
+
+/* =========================
+   ENCABEZADO
+   ========================= */
+
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 7px;
+}
+
+.page-title {
+  margin: 0;
+  color: #073b75;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.page-subtitle {
+  margin: 3px 0 0;
+  color: #31566f;
+  font-size: 11px;
+}
+
+/* =========================
+   BOTONES DE ACCIÓN
+   ========================= */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.filter-button,
+.clear-filters-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.filter-button {
+  min-width: 100px;
+  border: 1px solid #0078b5;
+  background: #ffffff;
+  color: #0078b5;
+}
+
+.filter-button:hover {
+  background: #eaf5fb;
+}
+
+.clear-filters-button {
+  min-width: 125px;
+  border: 1px solid #aebbc5;
+  background: #f4f6f8;
+  color: #5f6f7a;
+}
+
+.clear-filters-button:hover {
+  background: #e8edf1;
+  border-color: #7f909c;
+  color: #3f505c;
+}
+
+.filter-button i,
+.clear-filters-button i {
+  font-size: 13px;
+}
+
+/* =========================
+   FILTROS
+   ========================= */
+
+.filters-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 7px;
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 150px;
+}
+
+.filter-field span {
+  color: #31566f;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.filter-field select {
+  width: 100%;
+  height: 31px;
+  padding: 0 28px 0 9px;
+  border: 1px solid #cbdde9;
+  border-radius: 4px;
+  outline: none;
+  background: #ffffff;
+  color: #294963;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.filter-field select:focus {
+  border-color: #0876bc;
+}
+
+.prevalencia-tabs {
+  display: flex;
+  margin-bottom: 7px;
+}
+
+.tab {
+  height: 30px;
+  padding: 0 18px;
+  border: 1px solid #d0e0ea;
+  background: #eef6fb;
+  color: #174e78;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.tab:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.tab:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.tab.active {
+  background: #0876bc;
+  border-color: #0876bc;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* =========================
+   TARJETAS BASE
+   ========================= */
+
+.kpi-card,
+.table-card {
+  background: #ffffff;
+  border: 1px solid #d6e4ee;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   KPIS
+   ========================= */
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  margin-bottom: 7px;
+}
+
+.kpi-card {
+  min-width: 0;
+  min-height: 112px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+}
+
+.kpi-icon {
+  width: 66px;
+  height: 66px;
+  flex: 0 0 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 30px;
+}
+
+.kpi-card.total .kpi-icon {
+  background: #fff0f8;
+  color: #e83e8c;
+}
+
+.kpi-card.women .kpi-icon {
+  background: #edf6ff;
+  color: #1688d8;
+}
+
+.kpi-card.men .kpi-icon {
+  background: #edf6ff;
+  color: #1688d8;
+}
+
+.kpi-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.kpi-label {
+  color: #31566f;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.kpi-content strong {
+  display: block;
+  margin-top: 3px;
+  color: #0876bc;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.kpi-card.total .kpi-content strong {
+  color: #8d35c9;
+}
+
+.kpi-content small {
+  display: block;
+  margin-top: 3px;
+  color: #5f788b;
+  font-size: 9px;
+  line-height: 1.15;
+}
+
+/* =========================
+   GRÁFICOS
+   ========================= */
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+  gap: 7px;
+  margin-bottom: 7px;
+}
+
+.charts-grid app-chart-card {
+  display: block;
+  min-width: 0;
+  height: 290px;
+}
+
+.charts-grid app-chart-card::ng-deep .chart-card {
+  height: 290px;
+  box-sizing: border-box;
+}
+
+.charts-grid app-chart-card::ng-deep .chart-container {
+  height: 230px;
+}
+
+/* =========================
+   TABLA
+   ========================= */
+
+.detail-card {
+  width: 100%;
+  overflow: hidden;
+}
+
+.table-header {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 6px 10px;
+  border-bottom: 1px solid #dce8f0;
+  box-sizing: border-box;
+}
+
+.table-header h2 {
+  margin: 0;
+  color: #073b75;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.search-input {
+  width: 230px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  border: 1px solid #cbdde9;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.search-input i {
+  color: #7d9aaf;
+  font-size: 9px;
+}
+
+.search-input input {
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #294963;
+  font-size: 9px;
+}
+
+.search-input input::placeholder {
+  color: #8ba0af;
+}
+
+/* =========================
+   CONTENIDO TABLA
+   ========================= */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+thead {
+  background: #eaf4fb;
+}
+
+th {
+  height: 29px;
+  padding: 5px 8px;
+  color: #174e78;
+  font-size: 9px;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+}
+
+td {
+  height: 28px;
+  padding: 5px 8px;
+  border-top: 1px solid #e4edf3;
+  color: #294963;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+tbody tr:hover {
+  background: #f7fbfe;
+}
+
+th:first-child,
+td:first-child {
+  width: 35px;
+  text-align: center;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 20%;
+}
+
+th:nth-child(n + 3),
+td:nth-child(n + 3) {
+  text-align: center;
+}
+
+.prevalencia-value {
+  color: #073b75;
+  font-weight: 700;
+}
+
+/* =========================
+   PAGINACIÓN
+   ========================= */
+
+.pagination {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 5px 10px;
+  border-top: 1px solid #e1ebf2;
+  box-sizing: border-box;
+}
+
+.pagination > span {
+  color: #31566f;
+  font-size: 9px;
+}
+
+.pagination > div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pagination button {
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #cbdde9;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #31566f;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  border-color: #0876bc;
+  background: #eef7fc;
+  color: #0876bc;
+}
+
+.pagination button.active {
+  border-color: #0876bc;
+  background: #eaf5fb;
+  color: #0876bc;
+  font-weight: 700;
+}
+
+.pagination button i {
+  font-size: 8px;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1200px) {
+
+  .charts-grid {
+    grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+  }
+
+  .filter-field {
+    width: 135px;
+  }
+
+}
+
+@media (max-width: 1000px) {
+
+  .filters-row {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .kpi-card {
+    padding: 12px;
+  }
+
+  .kpi-icon {
+    width: 55px;
+    height: 55px;
+    flex-basis: 55px;
+    font-size: 25px;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .charts-grid app-chart-card,
+  .charts-grid app-chart-card::ng-deep .chart-card {
+    height: 300px;
+  }
+
+  .charts-grid app-chart-card::ng-deep .chart-container {
+    height: 240px;
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .prevalencia {
+    padding: 15px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .header-actions {
+    align-self: flex-end;
+  }
+
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-card {
+    min-height: 95px;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 850px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .prevalencia {
+    padding: 12px;
+  }
+
+  .page-title {
+    font-size: 20px;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .filter-button,
+  .clear-filters-button {
+    height: 36px;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+
+  .filters-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .filter-field {
+    width: 100%;
+  }
+
+  .kpi-icon {
+    width: 50px;
+    height: 50px;
+    flex-basis: 50px;
+    font-size: 22px;
+  }
+
+  .kpi-content strong {
+    font-size: 22px;
+  }
+
+  .charts-grid app-chart-card,
+  .charts-grid app-chart-card::ng-deep .chart-card {
+    height: 285px;
+  }
+
+  .charts-grid app-chart-card::ng-deep .chart-container {
+    height: 225px;
+  }
+
+  .table-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .pagination {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+}
+
+@media (max-width: 420px) {
+
+  .filters-row {
+    grid-template-columns: 1fr;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-button,
+  .clear-filters-button {
+    width: 100%;
+  }
+
+}

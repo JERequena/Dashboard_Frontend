@@ -1,0 +1,283 @@
+<section class="prevalencia">
+
+  <header class="page-header">
+
+    <div>
+      <h1 class="page-title">
+        Prevalencia
+      </h1>
+
+      <p class="page-subtitle">
+        Indicadores de violencia escolar respecto a la población educativa
+      </p>
+    </div>
+
+  </header>
+
+  <!-- TABS -->
+
+  <nav class="prevalencia-tabs">
+
+    <button class="tab active" type="button">
+      Prevalencia
+    </button>
+
+    <button class="tab" type="button">
+      Prevalencia física
+    </button>
+
+    <button class="tab" type="button">
+      Prevalencia psicológica
+    </button>
+
+    <button class="tab" type="button">
+      Prevalencia sexual
+    </button>
+
+  </nav>
+
+  <!-- KPIS -->
+
+  <section class="kpi-grid">
+
+    <article class="kpi-card total">
+
+      <div class="kpi-icon">
+        <i class="fa-solid fa-people-group"></i>
+      </div>
+
+      <div class="kpi-content">
+
+        <span class="kpi-label">
+          Prevalencia total
+        </span>
+
+        <strong>
+          3.2%
+        </strong>
+
+        <small>
+          118,384 casos
+        </small>
+
+        <small>
+          3,702,156 estudiantes
+        </small>
+
+      </div>
+
+    </article>
+
+    <article class="kpi-card women">
+
+      <div class="kpi-icon">
+        <i class="fa-solid fa-person-dress"></i>
+      </div>
+
+      <div class="kpi-content">
+
+        <span class="kpi-label">
+          Prevalencia en mujeres
+        </span>
+
+        <strong>
+          3.1%
+        </strong>
+
+        <small>
+          59,427 casos
+        </small>
+
+        <small>
+          1,912,340 estudiantes
+        </small>
+
+      </div>
+
+    </article>
+
+    <article class="kpi-card men">
+
+      <div class="kpi-icon">
+        <i class="fa-solid fa-person"></i>
+      </div>
+
+      <div class="kpi-content">
+
+        <span class="kpi-label">
+          Prevalencia en hombres
+        </span>
+
+        <strong>
+          3.3%
+        </strong>
+
+        <small>
+          58,957 casos
+        </small>
+
+        <small>
+          1,789,816 estudiantes
+        </small>
+
+      </div>
+
+    </article>
+
+  </section>
+
+  <!-- GRÁFICOS -->
+
+  <section class="charts-grid">
+
+    <app-chart-card
+      titulo="Evolución de la prevalencia (%)"
+      [configuracion]="evolucionPrevalencia">
+    </app-chart-card>
+
+    <app-chart-card
+      titulo="Prevalencia por tipo de violencia"
+      [configuracion]="prevalenciaViolencia">
+    </app-chart-card>
+
+  </section>
+
+  <!-- TABLA -->
+
+  <article class="table-card detail-card">
+
+    <header class="table-header">
+
+      <h2>
+        Prevalencia por ámbito territorial
+      </h2>
+
+      <div class="search-input">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          type="text"
+          placeholder="Buscar..."
+        />
+
+      </div>
+
+    </header>
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>#</th>
+            <th>Región</th>
+            <th>Estudiantes</th>
+            <th>Casos</th>
+            <th>Prevalencia (%)</th>
+            <th>Física (%)</th>
+            <th>Psicológica (%)</th>
+            <th>Sexual (%)</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>1</td>
+            <td>Lima Metropolitana</td>
+            <td>1,045,620</td>
+            <td>32,540</td>
+            <td class="prevalencia-value">3.1%</td>
+            <td>1.6%</td>
+            <td>1.1%</td>
+            <td>0.6%</td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>La Libertad</td>
+            <td>643,210</td>
+            <td>12,850</td>
+            <td class="prevalencia-value">2.0%</td>
+            <td>0.9%</td>
+            <td>0.8%</td>
+            <td>0.3%</td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>Piura</td>
+            <td>598,430</td>
+            <td>9,420</td>
+            <td class="prevalencia-value">1.6%</td>
+            <td>0.7%</td>
+            <td>0.6%</td>
+            <td>0.3%</td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>Arequipa</td>
+            <td>521,340</td>
+            <td>7,850</td>
+            <td class="prevalencia-value">1.5%</td>
+            <td>0.6%</td>
+            <td>0.6%</td>
+            <td>0.3%</td>
+          </tr>
+
+          <tr>
+            <td>5</td>
+            <td>Cusco</td>
+            <td>487,620</td>
+            <td>6,430</td>
+            <td class="prevalencia-value">1.3%</td>
+            <td>0.6%</td>
+            <td>0.5%</td>
+            <td>0.3%</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <footer class="pagination">
+
+      <span>
+        1 - 5 de 25
+      </span>
+
+      <div>
+
+        <button type="button">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <button
+          type="button"
+          class="active">
+          1
+        </button>
+
+        <button type="button">2</button>
+        <button type="button">3</button>
+        <button type="button">4</button>
+        <button type="button">5</button>
+
+        <button type="button">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+      </div>
+
+    </footer>
+
+  </article>
+
+</section>
