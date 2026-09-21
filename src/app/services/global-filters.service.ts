@@ -1,4 +1,5 @@
 import { Injectable, signal } from '@angular/core';
+import type { CampoFiltroGlobal } from '../components/global-filters/global-filters.component';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,10 @@ export class GlobalFiltersService {
   readonly abierto = signal(false);
   readonly cerrando = signal(false);
 
-  abrir(): void {
+  readonly campos = signal<readonly CampoFiltroGlobal[] | undefined>(undefined);
+
+  abrir(campos?: readonly CampoFiltroGlobal[]): void {
+    this.campos.set(campos);
     this.cerrando.set(false);
     this.abierto.set(true);
   }
