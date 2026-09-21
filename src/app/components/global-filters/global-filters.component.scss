@@ -1,0 +1,302 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+/* =========================
+   CONTENEDOR
+   ========================= */
+
+.global-filters {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  color: #294963;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+.filters-header {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #0876bc, #05679f);
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.back-button {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  background: transparent;
+  color: #ffffff;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(-2px);
+}
+
+.filters-title {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.filters-title h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.filters-title span {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+/* =========================
+   FORMULARIO
+   ========================= */
+
+.filters-panel {
+  flex: 1;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: #f7fafc;
+}
+
+.filters-panel fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* =========================
+   FILTROS
+   ========================= */
+
+.filter-row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.field-label {
+  display: block;
+  color: #174e78;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* =========================
+   SELECT
+   ========================= */
+
+.select-control {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.select-control select {
+  width: 100%;
+  height: 38px;
+  padding: 0 36px 0 11px;
+  border: 1px solid #cbdde9;
+  border-radius: 5px;
+  outline: none;
+  appearance: none;
+  background: #ffffff;
+  color: #294963;
+  font-size: 11px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.select-control select:hover {
+  border-color: #8dbbd6;
+}
+
+.select-control select:focus {
+  border-color: #0876bc;
+  box-shadow: 0 0 0 2px rgba(8, 118, 188, 0.1);
+}
+
+.select-control > i {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: #527b96;
+  font-size: 9px;
+  pointer-events: none;
+}
+
+/* =========================
+   CAMPOS DE BÚSQUEDA
+   ========================= */
+
+.search-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 34px 34px;
+  grid-template-rows: auto 38px;
+  column-gap: 5px;
+  row-gap: 5px;
+}
+
+.search-label {
+  grid-column: 1 / 4;
+  display: contents;
+}
+
+.search-label .field-label {
+  grid-column: 1 / 4;
+}
+
+.search-label input {
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  height: 38px;
+  min-width: 0;
+  padding: 0 10px;
+  border: 1px solid #cbdde9;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: #294963;
+  font-size: 11px;
+  transition: 0.15s ease;
+}
+
+.search-label input:focus {
+  border-color: #0876bc;
+  box-shadow: 0 0 0 2px rgba(8, 118, 188, 0.1);
+}
+
+.search-label input::placeholder {
+  color: #8ba0af;
+}
+
+.icon-button {
+  grid-row: 2;
+  width: 34px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #cbdde9;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #0876bc;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.icon-button:hover {
+  border-color: #0876bc;
+  background: #eaf5fb;
+}
+
+.clear-button {
+  color: #657c8c;
+}
+
+/* =========================
+   LIMPIAR FILTROS
+   ========================= */
+
+.reset-button {
+  width: 100%;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 4px;
+  border: 1px solid #0876bc;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #0876bc;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.reset-button:hover {
+  background: #eaf5fb;
+}
+
+/* =========================
+   ACCESIBILIDAD
+   ========================= */
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* =========================
+   DISABLED
+   ========================= */
+
+.filters-panel fieldset:disabled {
+  opacity: 0.6;
+}
+
+.filters-panel fieldset:disabled select,
+.filters-panel fieldset:disabled input,
+.filters-panel fieldset:disabled button {
+  cursor: not-allowed;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 600px) {
+  .filters-header {
+    min-height: 68px;
+    padding: 10px 14px;
+  }
+
+  .filters-panel {
+    padding: 14px;
+  }
+}

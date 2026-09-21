@@ -1,0 +1,71 @@
+<aside class="global-filters" aria-label="Filtros globales del dashboard">
+  <header class="filters-header">
+
+  <button
+    class="back-button"
+    type="button"
+    aria-label="Cerrar filtros"
+    title="Cerrar filtros"
+    (click)="cerrar.emit()">
+
+    <i class="fa-solid fa-arrow-left"
+      aria-hidden="true">
+    </i>
+
+  </button>
+
+  <div class="filters-title">
+    <h2>Filtros</h2>
+    <span>Filtra la información del dashboard</span>
+  </div>
+
+</header>
+
+  <form class="filters-panel" (submit)="$event.preventDefault(); aplicarFiltros()">
+    <fieldset [disabled]="deshabilitado()">
+      <legend class="visually-hidden">Ámbito y datos de la institución educativa</legend>
+
+      @for (filtro of selecciones; track filtro.campo) {
+        <label class="filter-row">
+          <span class="field-label" [title]="filtro.nombre">{{ filtro.etiqueta }}</span>
+          <span class="select-control">
+            <select [attr.aria-label]="filtro.nombre" [value]="valores()[filtro.campo]"
+              (change)="actualizarSeleccion(filtro.campo, $any($event.target).value)">
+              <option value="">Todas</option>
+              @for (opcion of opciones()[filtro.campo] ?? []; track opcion.valor) {
+                <option [value]="opcion.valor">{{ opcion.etiqueta }}</option>
+              }
+            </select>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </span>
+        </label>
+      }
+
+      @for (filtro of busquedas; track filtro.campo) {
+        <div class="filter-row search-row">
+          <label class="search-label">
+            <span class="field-label" [title]="filtro.nombre">{{ filtro.etiqueta }}</span>
+            <input type="text" placeholder="Buscar" autocomplete="off"
+              [attr.aria-label]="filtro.nombre"
+              [value]="valores()[filtro.campo]"
+              (input)="actualizarBusqueda(filtro.campo, $any($event.target).value)">
+          </label>
+          <button class="icon-button" type="submit"
+            [attr.aria-label]="'Buscar por ' + filtro.nombre" [title]="'Buscar por ' + filtro.nombre">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+          <button class="icon-button clear-button" type="button"
+            [attr.aria-label]="'Limpiar ' + filtro.nombre" [title]="'Limpiar ' + filtro.nombre"
+            (click)="limpiarCampo(filtro.campo)">
+            <i class="fa-solid fa-eraser" aria-hidden="true"></i>
+          </button>
+        </div>
+      }
+
+      <button class="reset-button" type="button" (click)="limpiarFiltros()">
+        <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+        Limpiar filtros
+      </button>
+    </fieldset>
+  </form>
+</aside>

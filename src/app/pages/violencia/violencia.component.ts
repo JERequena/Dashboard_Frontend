@@ -1,17 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 
 import { ChartCard } from '../../components/chart-card/chart-card.component';
+import { DashboardFilters, FiltroDashboard } from '../../components/dashboard-filters/dashboard-filters.component';
+
+import { GlobalFiltersService } from '../../services/global-filters.service';
 
 @Component({
   selector: 'app-violencia',
   imports: [
-    ChartCard
+    ChartCard,
+    DashboardFilters
   ],
   templateUrl: './violencia.component.html',
   styleUrl: './violencia.component.scss',
 })
 export class Violencia {
+
+  readonly globalFilters = inject(GlobalFiltersService);
+
+  filtros: FiltroDashboard[] = [
+    {
+      id: 'agresor',
+      label: 'Tipo de agresor',
+      opciones: ['Entre escolares', 'Personal IE a escolares']
+    },
+    {
+      id: 'gestion',
+      label: 'Gestión de la IE',
+      opciones: ['Privado', 'Público']
+    },
+    {
+      id: 'estado',
+      label: 'Estado de atención',
+      opciones: ['En proceso', 'Finalizada']
+    }
+  ];
 
   configuracionDistribucion: ChartConfiguration<'bar'> = {
     type: 'bar',

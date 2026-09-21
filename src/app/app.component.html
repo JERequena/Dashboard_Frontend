@@ -5,3 +5,21 @@
 <main class="app-content">
   <router-outlet />
 </main>
+
+@if (globalFilters.abierto()) {
+  <div
+    class="global-filters-backdrop"
+    [class.closing]="globalFilters.cerrando()"
+    (click)="globalFilters.cerrar()">
+  </div>
+
+  <aside
+    class="global-filters-container"
+    [class.closing]="globalFilters.cerrando()">
+
+    <app-global-filters
+      (cerrar)="globalFilters.cerrar()">
+    </app-global-filters>
+
+  </aside>
+}

@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 
 import { KpiCard } from '../../components/kpi-card/kpi-card.component';
 import { ChartCard } from '../../components/chart-card/chart-card.component';
+
+import { GlobalFiltersService } from '../../services/global-filters.service';
 
 @Component({
   selector: 'app-panorama',
@@ -14,6 +16,8 @@ import { ChartCard } from '../../components/chart-card/chart-card.component';
   styleUrl: './panorama.component.scss',
 })
 export class Panorama {
+
+  readonly globalFilters = inject(GlobalFiltersService);
 
   configuracionEvolucion: ChartConfiguration<'line'> = {
 
