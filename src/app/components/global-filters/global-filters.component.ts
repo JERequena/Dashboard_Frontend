@@ -1,4 +1,4 @@
-import { Component, input, model, output } from '@angular/core';
+import { Component, computed, input, model, output } from '@angular/core';
 
 export interface ValoresFiltrosGlobales {
   anio: string;
@@ -19,6 +19,8 @@ export type CampoSeleccionGlobal = Exclude<
   'codigoLocal' | 'codigoModular' | 'institucionEducativa'
 >;
 export type CampoBusquedaGlobal = Exclude<keyof ValoresFiltrosGlobales, CampoSeleccionGlobal>;
+
+export type CampoFiltroGlobal = keyof ValoresFiltrosGlobales;
 
 export interface OpcionFiltroGlobal {
   valor: string;
@@ -44,6 +46,8 @@ export function crearFiltrosGlobalesVacios(): ValoresFiltrosGlobales {
   styleUrl: './global-filters.component.scss',
 })
 export class GlobalFilters {
+  /** Campos visibles en orden. Sin configurar muestra todos; [] no muestra campos. */
+  campos = input<readonly CampoFiltroGlobal[]>();
   /** Catálogos proporcionados por la página o un servicio compartido. */
   opciones = input<OpcionesFiltrosGlobales>({});
   deshabilitado = input(false);
@@ -72,6 +76,19 @@ export class GlobalFilters {
     { campo: 'codigoModular', etiqueta: 'CÓDIGO MODULAR', nombre: 'Código modular' },
     { campo: 'institucionEducativa', etiqueta: 'INSTITUCIÓN EDUCATIVA', nombre: 'Institución educativa' },
   ];
+
+  readonly filtrosVisibles = computed(() => {
+    const disponibles = [
+      ...this.selecciones.map(filtro => ({ ...filtro, tipo: 'seleccion' as const })),
+      ...this.busquedas.map(filtro => ({ ...filtro, tipo: 'busqueda' as const })),
+    ];
+    const campos = this.campos();
+    if (campos === undefined) return disponibles;
+    return [...new Set(campos)].flatMap(campo => {
+      const filtro = disponibles.find(item => item.campo === campo);
+      return filtro ? [filtro] : [];
+    });
+  });
 
   actualizarSeleccion(campo: CampoSeleccionGlobal, valor: string): void {
     if (this.deshabilitado()) return;
@@ -117,6 +134,11 @@ export class GlobalFilters {
       institucionEducativa: valores.institucionEducativa.trim(),
     };
     this.valores.set(normalizados);
-    this.aplicar.emit({ ...normalizados });
+    // Conserva el modelo compartido; los campos ocultos se emiten vacíos.
+    const activos = crearFiltrosGlobalesVacios();
+    for (const filtro of this.filtrosVisibles()) {
+      activos[filtro.campo] = normalizados[filtro.campo];
+    }
+    this.aplicar.emit(activos);
   }
 }

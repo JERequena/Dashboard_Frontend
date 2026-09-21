@@ -25,7 +25,8 @@
     <fieldset [disabled]="deshabilitado()">
       <legend class="visually-hidden">Ámbito y datos de la institución educativa</legend>
 
-      @for (filtro of selecciones; track filtro.campo) {
+      @for (filtro of filtrosVisibles(); track filtro.campo) {
+        @if (filtro.tipo === 'seleccion') {
         <label class="filter-row">
           <span class="field-label" [title]="filtro.nombre">{{ filtro.etiqueta }}</span>
           <span class="select-control">
@@ -39,9 +40,7 @@
             <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
           </span>
         </label>
-      }
-
-      @for (filtro of busquedas; track filtro.campo) {
+        } @else {
         <div class="filter-row search-row">
           <label class="search-label">
             <span class="field-label" [title]="filtro.nombre">{{ filtro.etiqueta }}</span>
@@ -60,6 +59,7 @@
             <i class="fa-solid fa-eraser" aria-hidden="true"></i>
           </button>
         </div>
+        }
       }
 
       <button class="reset-button" type="button" (click)="limpiarFiltros()">

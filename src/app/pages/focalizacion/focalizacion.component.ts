@@ -1,5 +1,7 @@
 import { Component, signal, inject } from '@angular/core';
 
+import type { CampoFiltroGlobal } from '../../components/global-filters/global-filters.component';
+
 import { GlobalFiltersService } from '../../services/global-filters.service';
 
 interface GeoJsonGeometry {
@@ -33,6 +35,10 @@ interface ZonaMapa {
 export class Focalizacion {
 
   readonly globalFilters = inject(GlobalFiltersService);
+  readonly camposFiltros: readonly CampoFiltroGlobal[] = [
+      'anio', 'region', 'provincia', 'distrito',
+      'dre', 'ugel', 'modalidad',
+    ];
 
   zonas = signal<ZonaMapa[]>([]);
 

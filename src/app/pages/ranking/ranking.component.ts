@@ -4,6 +4,8 @@ import { ChartConfiguration } from 'chart.js';
 import { ChartCard } from '../../components/chart-card/chart-card.component';
 import { DashboardFilters, FiltroDashboard } from '../../components/dashboard-filters/dashboard-filters.component';
 
+import type { CampoFiltroGlobal } from '../../components/global-filters/global-filters.component';
+
 import { GlobalFiltersService } from '../../services/global-filters.service';
 
 interface GeoJsonGeometry {
@@ -40,6 +42,10 @@ interface MapaDepartamento {
 export class Ranking{
 
   readonly globalFilters = inject(GlobalFiltersService);
+  readonly camposFiltros: readonly CampoFiltroGlobal[] = [
+    'anio', 'region', 'provincia', 'distrito',
+    'dre', 'ugel', 'modalidad', 'nivelEducativo',
+  ];
 
   departamentos = signal<MapaDepartamento[]>([]);
 
